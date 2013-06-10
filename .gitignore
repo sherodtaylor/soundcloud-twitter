@@ -4,6 +4,9 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile ~/.gitignore_global
 
+# Api Keys Ignore
+/config/initializers/api_keys.yaml
+
 # Ignore bundler config
 /.bundle
 
