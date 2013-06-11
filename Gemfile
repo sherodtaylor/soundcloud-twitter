@@ -16,7 +16,7 @@ end
 group :test do
   gem 'simplecov', :require => false
   gem 'rspec-rails'
-  gem 'webmock'
+  # gem 'webmock'
 end
 
 
@@ -36,6 +36,7 @@ gem 'jquery-rails'
 gem 'omniauth'
 gem 'omniauth-soundcloud', '~> 1.0.0'
 gem 'omniauth-twitter'
+gem 'soundcloud', :require => false
 
 
 

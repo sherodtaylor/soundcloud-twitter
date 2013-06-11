@@ -36,6 +36,24 @@
         null,
         null
       ],
+      "/Users/sherodtaylor/Dropbox/wdi/soundcloud-twitter/app/controllers/searches_controller.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
       "/Users/sherodtaylor/Dropbox/wdi/soundcloud-twitter/app/controllers/sessions_controller.rb": [
         1,
         1,
@@ -91,6 +109,6 @@
         null
       ]
     },
-    "timestamp": 1370965900
+    "timestamp": 1370986531
   }
 }
