@@ -1,4 +1,8 @@
 SoundcloudTwitter::Application.routes.draw do
+  match '/auth/:provider/callback' => 'sessions#create'
+  match 'sign_out' => 'sessions#destroy', :as => :signout
+  match 'link_twitter' => 'sessions#link_twitter', :as => :link_twitter
+  root :to => 'pages#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

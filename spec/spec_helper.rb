@@ -1,13 +1,62 @@
+require 'simplecov'
+SimpleCov.start 'rails'
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'webmock/rspec'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
+#SoundCloud Mocking
+soundcloud = {
+  "provider" => "soundcloud",
+  "uid" => 12345678,
+  "info" => {
+    "name" => "Soundcloud User",
+    "nickname" => "soundclouder",
+    "image" => "https://the.image.url",
+    "location" => "Soundcloud Town"
+  },
+  "credentials" => {
+    "token" => "123-321",
+    "expires" => false
+  },
+  "extra" => {
+    "raw_info" => {
+      "id" => 12345678,
+      "kind" => "user",
+      "permalink" => "soundclouder",
+      "username" => "soundclouder",
+      "full_name" => "Sherod Taylor",
+    }
+  }
+}
+OmniAuth.config.add_mock(:soundcloud, soundcloud)
+
+#Twitter Mocking
+twitter = {
+  "provider" => "twitter",
+  "uid" => 12345678,
+  "info" => {
+    "name" => "Sherod Taylor",
+    "nickname" => "sherodtaylor"
+  },
+  "credentials" => {
+    "token" => "123-321",
+    "expires" => false
+  },
+  "extra" => {
+    "raw_info" => {
+      "id" => 12345678,
+      "full_name" => "Sherod Taylor",
+    }
+  }
+}
+OmniAuth.config.add_mock(:twitter, twitter)
 RSpec.configure do |config|
   # ## Mock Framework
   #
