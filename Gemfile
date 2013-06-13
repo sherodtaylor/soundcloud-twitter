@@ -37,6 +37,7 @@ gem 'omniauth'
 gem 'omniauth-soundcloud', '~> 1.0.0'
 gem 'omniauth-twitter'
 gem 'soundcloud', :require => false
+gem 'twitter', :require => false
 
 
 

@@ -1,13 +1,15 @@
 $(document).ready(function(){
+  var array;
   $('#button').bind("click", function(e){
     e.preventDefault();
     var encoded = encodeURIComponent($('#input').val());
+    if (document.getElementById('sc-widget') == null) {
     $.ajax({url: "/playlist?q=" + encoded
           ,method: 'get'
           ,dataType: 'text'
           ,success: function(e){
           console.log(e)
-          $('#player').append('<iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=' + e + '" width="100%" height="465" scrolling="no" frameborder="no"></iframe>');
+          $('#player').append('<iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=' + e + '" width="100%" height="100%" scrolling="no" frameborder="no"></iframe>');
           var widgetIframe = document.getElementById('sc-widget'),
               widget       = SC.Widget(widgetIframe);
 
@@ -23,11 +25,35 @@ $(document).ready(function(){
               console.log('current volume value is ' + volume);
             });
           }); // widget
+
+          setInterval(tweetCall, 6000);
+
+            function tweetCall(){
+              $.ajax({
+                url: "/twitter?q=" + encoded
+               ,method: "get"
+               ,dataType: "json"
+               ,success: function (tweets){
+                array = tweets
+                for (var i = 0; i < tweets.length; 1 =+ i){
+                  var source   = $("#tweet-template").html();
+                  var template = Handlebars.compile(source);
+                  var context = tweets[i]
+                  var html    = template(context);
+                  $('#tweet-box').append(html);
+                }
+               }
+              });
+            }
           } // success
          ,error: function (data, error){
            console.log(data);
            console.log(error);
          }
-    });
+    });}
+
+    else {
+      console.log('did not fire ajax')
+    }
   });
 });

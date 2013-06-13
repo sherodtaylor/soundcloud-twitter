@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def create
     auth = request.env["omniauth.auth"]
 
-    unless User.omniauth_find(auth) == nil
+    if User.omniauth_find(auth) != nil
       @user = User.omniauth_find(auth)
     end
 
@@ -21,7 +21,9 @@ class SessionsController < ApplicationController
   def link_twitter(auth)
     user = User.find(session[:user_id])
     user.twitter_token = auth['credentials']['token']
+    user.twitter_secret = auth['credentials']['secret']
     user.twitter_id = auth['extra']['raw_info']['id']
+    user.twitter_connect = true
     user.save!
     redirect_to root_path
   end
