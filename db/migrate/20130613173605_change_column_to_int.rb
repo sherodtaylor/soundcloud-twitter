@@ -1,5 +1,9 @@
 class ChangeColumnToInt < ActiveRecord::Migration
-  def change
-    change_column :users, :soundcloud_id, :integer
+  def up
+    connection.execute(%q{
+      alter table users
+      alter column soundcloud_id
+      type integer using cast(soundcloud_id as integer)
+    })
   end
 end
