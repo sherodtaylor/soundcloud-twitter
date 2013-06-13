@@ -2,6 +2,8 @@ $(document).ready(function(){
   var array;
   $('#button').bind("click", function(e){
     e.preventDefault();
+    $('.tweet').remove();
+    $('#sc-widget').remove();
     var encoded = encodeURIComponent($('#input').val());
     if (document.getElementById('sc-widget') == null) {
     $.ajax({url: "/playlist?q=" + encoded
@@ -40,7 +42,7 @@ $(document).ready(function(){
                   var template = Handlebars.compile(source);
                   var context = tweets[i]
                   var html    = template(context);
-                  $('#tweet-box').append(html);
+                  $('#tweet-box').prepend(html);
                 }
                }
               });

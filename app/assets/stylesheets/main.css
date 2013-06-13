@@ -15,15 +15,19 @@
 }
 
 .tweet-pic {
-  width: 50px;
-  height: 50px;
+  width: 15%;
+  margin-right: 15px;
+  height: auto;
 }
 
 .tweet {
   display:inline-block;
-  width:100%;
+  width:90%;
+  padding: 5px 15px 5px 15px;
 }
 
 .tweet p {
   display:inline-block;
+  font-size:12px;
+  width:75%;
 }
