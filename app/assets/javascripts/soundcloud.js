@@ -4,9 +4,8 @@ $(document).ready(function(){
     e.preventDefault();
     $('.tweet').remove();
     $('#sc-widget').remove();
-    var encoded = encodeURIComponent($('#input').val());
     if (document.getElementById('sc-widget') == null) {
-    $.ajax({url: "/playlist?q=" + encoded
+    $.ajax({url: "/playlist?q=" + encodeURIComponent($('#input').val());
           ,method: 'get'
           ,dataType: 'text'
           ,success: function(e){
@@ -32,7 +31,7 @@ $(document).ready(function(){
 
             function tweetCall(){
               $.ajax({
-                url: "/twitter?q=" + encoded
+                url: "/twitter?q=" + encodeURIComponent($('#input').val());
                ,method: "get"
                ,dataType: "json"
                ,success: function (tweets){
