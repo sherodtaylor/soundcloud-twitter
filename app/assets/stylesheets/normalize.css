@@ -533,8 +533,11 @@ table {
 }
 
 body {
-  margin-top:160px;
+  margin-top:120px;
   margin-bottom:0px;
-  min-height:250px;
+  height:100%;
+}
+
+html {
   background-color:Gainsboro;
 }
