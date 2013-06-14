@@ -1,7 +1,7 @@
 <div class="row">
   <% if !signed_in? %>
     <div class="social">
-      <a href="/auth/soundcloud"><%= image_tag "soundcloud_connect.png", :class => "connect-img" %></a>
+      <a href="/auth/soundcloud"><%= image_tag "soundcloud_connect.png", :class => "connect-sc" %></a>
     </div>
   </div>
   <div class="row">
@@ -12,7 +12,7 @@
 </div>
   <% elsif !is_connected? %>
     <div class="social">
-    <a href="/auth/twitter"><%= image_tag "twitter_connect.png", :class => "connect-img" %></a>
+    <a href="/auth/twitter"><%= image_tag "twitter_connect.png", :class => "connect-twitter" %></a>
     </div>
 <% end %>
 <% if signed_in? %>
