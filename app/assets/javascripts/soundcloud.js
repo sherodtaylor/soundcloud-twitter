@@ -67,9 +67,18 @@ $(document).ready(function(){
         }
       };
 
+      var loader;
+
       $.ajax({url: "/playlist?q=" + encodeURIComponent($('#input').val())
             ,method: 'get'
             ,dataType: 'text'
+            ,beforeSend: function(){
+              loader = new ajaxLoader($('html'), {classOveride: 'ajax_loader', bgColor: '#000', opacity: '0.3'});
+
+            }
+            ,complete: function (){
+              loader.remove();
+            }
             ,success: function(e){
             console.log("I'm Appending Now")
             $('#player').append('<iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=' + e + '" width="100%" height="300" scrolling="no" frameborder="no"></iframe>');
