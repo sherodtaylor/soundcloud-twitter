@@ -1,18 +1,26 @@
-<script src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <div class="row">
+  <% if !signed_in? %>
+    <a href="/auth/soundcloud"><%= image_tag "soundcloud_connect.png", :class => "connect-img" %></a>
+  </div>
+  <div class="row">
+    <div class="description">
+      <p> Search for a playlist and see whats happening on twitter</p>
+    </div>
+  </div>
+</div>
+  <% elsif !is_connected? %>
+    <a href="/auth/twitter"><%= image_tag "twitter_connect.png" %></a>
+</div>
+<% end %>
+<% if signed_in? %>
   <div class="form">
     <form action="" method="get" accept-charset="utf-8">
       <input type="text" id="input" value="" />
       <button class="submit" id="button" type="submit">look up</button>
     </form>
     <br />
-  <% if !signed_in? %>
-    <a href="/auth/soundcloud"><%= image_tag "soundcloud_connect.png", :class => "connect-img" %></a>
-  <% elsif !is_connected? %>
-    <a href="/auth/twitter"><%= image_tag "twitter_connect.png" %></a>
-  <% end %>
   </div>
-</div>
+<% end %>
 <div class="row">
   <div class="seven columns">
     <div id="tweet-box">
