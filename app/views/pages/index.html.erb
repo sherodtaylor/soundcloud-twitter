@@ -1,8 +1,9 @@
+<script src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <div class="row">
-  <div class="five columns offset-by-five">
+  <div class="form">
     <form action="" method="get" accept-charset="utf-8">
       <input type="text" id="input" value="" />
-      <button id="button" type="submit">look up</button>
+      <button class="submit" id="button" type="submit">look up</button>
     </form>
     <br />
   <% if !signed_in? %>
@@ -23,8 +24,6 @@
   </div>
 </div>
 <script id="tweet-template" type="text/javascript">
-  <div class="tweet">
-    <img src="{{ link }}" class="tweet-pic"  alt="" />
-    <p> {{ tweet }} </p>
-  </div>
+  <blockquote class="twitter-tweet"><p>{{ tweet }}</p>&mdash; {{ name }} (@{{ handle }}) <a href="https://twitter.com/{{ handle }}/statuses/{{ id }}">{{ date }}</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 </script>

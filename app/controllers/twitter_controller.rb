@@ -15,7 +15,8 @@ class TwitterController < ApplicationController
     if last_id != nil
       json = client.search(q, { :since_id => last_id, :count => 10 })['statuses'].map{ |s| { link: s['user']['profile_background_image_url'], tweet: s['text'] } }
     else
-      json = client.search(q, { :count => 10 })['statuses'].map{ |s| { link: s['user']['profile_background_image_url'], tweet: s['text'] } }
+      test = client.search(q, { :count => 10 })
+      json = client.search(q, { :count => 10 })['statuses'].map{ |s| { pic: s['user']['profile_background_image_url'], tweet: s['text'], date: s['created_at'].strftime("%H:%M%P - %e %b %Y"), handle: s['user']['screen_name'], name: s['user']['name'], id: s['id'].to_s} }
     end
     render :json => json.to_json
   end

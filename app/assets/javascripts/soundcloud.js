@@ -1,11 +1,23 @@
 $(document).ready(function(){
-  var array;
   $('#button').bind("click", function(e){
     e.preventDefault();
+    return false;
+    theCall();
+  });
+
+  $('#input').bind('click', function(e){
+    if (event.keyCode == 13) {
+      return false;
+      theCall();
+    }
+  });
+});
+
+theCall(){
     $('.tweet').remove();
     $('#sc-widget').remove();
     if (document.getElementById('sc-widget') == null) {
-    $.ajax({url: "/playlist?q=" + encodeURIComponent($('#input').val());
+    $.ajax({url: "/playlist?q=" + encodeURIComponent($('#input').val())
           ,method: 'get'
           ,dataType: 'text'
           ,success: function(e){
@@ -27,7 +39,7 @@ $(document).ready(function(){
             });
           }); // widget
 
-          setInterval(tweetCall, 6000);
+          setInterval(tweetCall, 10000);
 
             function tweetCall(){
               $.ajax({
@@ -56,5 +68,4 @@ $(document).ready(function(){
     else {
       console.log('did not fire ajax')
     }
-  });
-});
+}
