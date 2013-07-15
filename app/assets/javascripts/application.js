@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require backstretch
+//= require getimagedata
 //= require_tree .

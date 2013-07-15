@@ -533,8 +533,7 @@ table {
 }
 
 body {
-  margin-top:120px;
-  margin-bottom:0px;
+  margin:0;
   height:100%;
 }
 

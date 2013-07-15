@@ -1,4 +1,11 @@
+var img, ctx, thief, color, canvas, url, palette;
+
 $(document).ready(function(){
+
+  url_img = 'http://farm3.staticflickr.com/2832/8926914517_a8d2435ce2_k.jpg';
+
+  $.backstretch(url_img);
+
   $('#button').bind("click", function(e){
     e.preventDefault();
     $('iframe').remove();
