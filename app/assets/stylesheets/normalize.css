@@ -540,3 +540,8 @@ body {
 html {
   background-color:Gainsboro;
 }
+
+input#input {
+  border:none;
+  padding:none;
+}
